@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/navigate_button"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:text="@string/path_start_navigation"
+        app:cornerRadius="12dp"
+        app:icon="@drawable/ic_directions" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/save_button"
+        style="@style/Widget.Material3.Button.TonalButton"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/path_save"
+        app:cornerRadius="12dp"
+        app:icon="@drawable/ic_bookmark" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/like_button"
+        style="@style/Widget.Material3.Button.TonalButton"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="8dp"
+        android:text="Liker le parcours"
+        app:cornerRadius="12dp"
+        app:icon="@drawable/ic_like" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/share_button"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/path_share"
+        app:cornerRadius="12dp"
+        app:icon="@drawable/ic_share" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/export_pdf_button"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/path_export_pdf"
+        app:cornerRadius="12dp"
+        app:icon="@drawable/ic_file" />
+
+</LinearLayout>
+

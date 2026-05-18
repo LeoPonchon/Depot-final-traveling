@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/navigation_guide">
+
+    <fragment
+        android:id="@+id/navigation_share"
+        android:name="com.shimtraveling.ui.share.ShareFragment"
+        android:label="@string/nav_share" />
+
+    <fragment
+        android:id="@+id/navigation_path"
+        android:name="com.shimtraveling.ui.path.PathFragment"
+        android:label="@string/nav_path" />
+
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.shimtraveling.ui.profile.ProfileFragment"
+        android:label="@string/nav_profile" />
+
+    <fragment
+        android:id="@+id/navigation_guide"
+        android:name="com.shimtraveling.ui.guide.GuideFragment"
+        android:label="@string/nav_guide" />
+
+</navigation>

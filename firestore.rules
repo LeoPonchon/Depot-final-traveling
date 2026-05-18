@@ -1,0 +1,170 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function onlyChanges(keys) {
+      return request.resource.data.diff(resource.data).changedKeys().hasOnly(keys);
+    }
+
+    function isAdmin() {
+      return signedIn() &&
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.get('isAdmin', false) == true;
+    }
+
+    function doesNotChangeAdminFlags() {
+      // Prevent clients from self-promoting by changing admin flags.
+      // (diff works well with set(..., merge) as unchanged fields are not considered "changed".)
+      return !request.resource.data.diff(resource.data).changedKeys().hasAny(['isAdmin', 'admin']);
+    }
+
+    function groupMembers(gid) {
+      return get(/databases/$(database)/documents/groups/$(gid)).data.members;
+    }
+
+    function isGroupMember(gid) {
+      return signedIn() && gid != null && gid != '' &&
+        request.auth.uid in groupMembers(gid);
+    }
+
+    function photoModerationOk() {
+      return resource.data.moderationStatus == null ||
+        resource.data.moderationStatus == 'VISIBLE' ||
+        resource.data.moderationStatus == 'PENDING' ||
+        (signedIn() && request.auth.uid == resource.data.authorId) ||
+        isAdmin();
+    }
+
+    match /places/{placeId} {
+      allow read: if true;
+      allow create: if signedIn() && request.resource.data.authorId == request.auth.uid;
+      allow update: if signedIn() && (
+        isAdmin() ||
+        resource.data.authorId == request.auth.uid ||
+        // likes counter updated by other users
+        onlyChanges(['likes']) ||
+        // place pricing aggregation updated when publishing photos
+        onlyChanges(['price', 'priceCount', 'updatedAt']) ||
+        // place pricing aggregation + cover image set atomically (first publish)
+        onlyChanges(['price', 'priceCount', 'imageUrl', 'updatedAt']) ||
+        // place cover image can be set from first photo
+        onlyChanges(['imageUrl', 'updatedAt'])
+      );
+      allow delete: if signedIn() && (isAdmin() || resource.data.authorId == request.auth.uid);
+    }
+
+    match /photos/{photoId} {
+      allow read: if photoModerationOk() && (
+        resource.data.visibility == 'PUBLIC' ||
+        (signedIn() && request.auth.uid == resource.data.authorId) ||
+        (signedIn() && resource.data.visibility == 'GROUP' &&
+          resource.data.groupId != null && isGroupMember(resource.data.groupId)) ||
+        (signedIn() && resource.data.visibility == 'PRIVATE' && request.auth.uid == resource.data.authorId)
+      );
+      allow create: if signedIn() && request.resource.data.authorId == request.auth.uid;
+      allow update: if signedIn() && (
+        isAdmin() ||
+        // author can update full doc, but cannot transfer ownership
+        (request.auth.uid == resource.data.authorId &&
+          request.resource.data.authorId == resource.data.authorId) ||
+        // likes counter updated by other users
+        onlyChanges(['likes'])
+      );
+      allow delete: if signedIn() && request.auth.uid == resource.data.authorId;
+    }
+
+    match /users/{userId} {
+      allow read: if signedIn();
+      // Users can create/update their own profile, but cannot set admin flags from the client.
+      allow create: if signedIn() && request.auth.uid == userId &&
+        !request.resource.data.keys().hasAny(['isAdmin', 'admin']);
+      allow update: if signedIn() && request.auth.uid == userId && doesNotChangeAdminFlags();
+      allow delete: if signedIn() && request.auth.uid == userId;
+    }
+
+    match /users/{userId}/settings/{docId} {
+      allow read, write: if signedIn() && request.auth.uid == userId;
+    }
+
+    match /saved_paths/{pathId} {
+      allow read: if signedIn();
+      allow create: if signedIn() && request.resource.data.userId == request.auth.uid;
+      allow update: if signedIn() && (
+        isAdmin() ||
+        resource.data.userId == request.auth.uid ||
+        // likes counter updated by other users
+        onlyChanges(['likes'])
+      );
+      allow delete: if signedIn() && (isAdmin() || resource.data.userId == request.auth.uid);
+    }
+
+    match /groups/{groupId} {
+      allow read: if signedIn();
+      allow create: if signedIn() &&
+        request.resource.data.ownerId == request.auth.uid &&
+        request.auth.uid in request.resource.data.members;
+      allow update: if signedIn() && (
+        isAdmin() ||
+        resource.data.ownerId == request.auth.uid ||
+        // membership changes (join/leave) from the client
+        onlyChanges(['members']) ||
+        // group photo counter updated when publishing group photos
+        (onlyChanges(['photoCount']) && request.auth.uid in resource.data.members)
+      );
+      allow delete: if signedIn() && (isAdmin() || resource.data.ownerId == request.auth.uid);
+    }
+
+    match /likes/{likeId} {
+      allow read: if signedIn();
+      allow create: if signedIn() && request.resource.data.userId == request.auth.uid;
+      allow delete: if signedIn() && resource.data.userId == request.auth.uid;
+    }
+
+    match /place_likes/{id} {
+      allow read: if signedIn();
+      allow create: if signedIn() && request.resource.data.userId == request.auth.uid;
+      allow delete: if signedIn() && resource.data.userId == request.auth.uid;
+    }
+
+    match /path_likes/{id} {
+      allow read: if signedIn();
+      allow create: if signedIn() && request.resource.data.userId == request.auth.uid;
+      allow delete: if signedIn() && resource.data.userId == request.auth.uid;
+    }
+
+    match /comments/{id} {
+      allow read: if signedIn();
+      allow create: if signedIn() && request.resource.data.authorId == request.auth.uid;
+      allow update, delete: if signedIn() && (
+        isAdmin() ||
+        resource.data.authorId == request.auth.uid
+      );
+    }
+
+    match /place_comments/{id} {
+      allow read: if signedIn();
+      allow create: if signedIn() && request.resource.data.authorId == request.auth.uid;
+      allow update, delete: if signedIn() && (
+        isAdmin() ||
+        resource.data.authorId == request.auth.uid
+      );
+    }
+
+    match /reports/{id} {
+      allow read: if isAdmin();
+      allow create: if signedIn() && request.resource.data.userId == request.auth.uid;
+      allow update, delete: if isAdmin();
+    }
+
+    match /notifications/{id} {
+      allow read: if signedIn() && resource.data.userId == request.auth.uid;
+      allow create: if signedIn() && request.resource.data.userId == request.auth.uid;
+      allow update: if signedIn() && resource.data.userId == request.auth.uid &&
+        request.resource.data.userId == resource.data.userId;
+      allow delete: if signedIn() && resource.data.userId == request.auth.uid;
+    }
+  }
+}

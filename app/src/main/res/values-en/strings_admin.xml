@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="admin_open">Administration</string>
+    <string name="admin_title">Administration</string>
+    <string name="admin_access_denied">Administrator access required</string>
+    <string name="admin_reports_title">Reports management</string>
+    <string name="admin_reports_loading">Loading reports…</string>
+    <string name="admin_reports_open">Open moderation</string>
+    <string name="admin_maintenance_title">Maintenance</string>
+    <string name="admin_maintenance_description">Groups sensitive administrator-only actions such as clearing the local database and reviewing reports.</string>
+
+    <plurals name="admin_reports_count">
+        <item quantity="one">%d open report</item>
+        <item quantity="other">%d open reports</item>
+    </plurals>
+</resources>

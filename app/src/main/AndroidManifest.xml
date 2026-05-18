@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.location.gps" android:required="false" />
+
+    <application
+        android:name=".TravelingApp"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Traveling"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="35">
+
+        <activity
+            android:name=".ui.main.MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.Traveling">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data
+                    android:scheme="traveling"
+                    android:host="app" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".features.place.PlaceDetailActivity"
+            android:parentActivityName=".ui.main.MainActivity" />
+
+        <activity
+            android:name=".features.photo.PhotoDetailActivity"
+            android:parentActivityName=".ui.main.MainActivity" />
+
+        <activity
+            android:name=".features.profile.LoginActivity"
+            android:parentActivityName=".ui.main.MainActivity" />
+
+        <activity
+            android:name=".features.profile.RegisterActivity"
+            android:parentActivityName=".ui.main.MainActivity" />
+
+        <activity
+            android:name=".features.share.PublishPhotoActivity"
+            android:parentActivityName=".ui.main.MainActivity" />
+
+        <activity
+            android:name=".features.path.PathDetailActivity"
+            android:parentActivityName=".ui.main.MainActivity" />
+
+        <activity
+            android:name=".features.path.PathMapActivity"
+            android:parentActivityName=".ui.main.MainActivity" />
+
+        <activity
+            android:name=".features.share.ShareMapActivity"
+            android:parentActivityName=".ui.main.MainActivity" />
+
+        <activity
+            android:name=".features.profile.MyPhotosActivity"
+            android:parentActivityName=".ui.main.MainActivity" />
+
+        <activity
+            android:name=".features.profile.FavoritesActivity"
+            android:parentActivityName=".ui.main.MainActivity" />
+
+        <activity
+            android:name=".features.profile.MyPathsActivity"
+            android:parentActivityName=".ui.main.MainActivity" />
+
+        <activity
+            android:name=".features.profile.GroupsActivity"
+            android:parentActivityName=".ui.main.MainActivity" />
+
+        <activity
+            android:name=".features.profile.CreateGroupActivity"
+            android:parentActivityName=".ui.main.MainActivity" />
+
+        <activity
+            android:name=".features.profile.GroupDetailActivity"
+            android:parentActivityName=".ui.main.MainActivity" />
+
+        <activity
+            android:name=".features.profile.NotificationsActivity"
+            android:parentActivityName=".ui.main.MainActivity" />
+
+        <activity
+            android:name=".features.profile.SettingsActivity"
+            android:parentActivityName=".ui.main.MainActivity" />
+
+        <activity
+            android:name=".features.profile.AdminManagementActivity"
+            android:parentActivityName=".features.profile.SettingsActivity" />
+
+        <activity
+            android:name=".features.profile.NotificationSettingsActivity"
+            android:parentActivityName=".features.profile.SettingsActivity" />
+
+        <activity
+            android:name=".features.profile.ModerationActivity"
+            android:parentActivityName=".features.profile.AdminManagementActivity" />
+
+        <activity
+            android:name=".features.profile.AddPlaceActivity"
+            android:parentActivityName=".ui.main.MainActivity" />
+
+        <activity
+            android:name=".features.path.StepGalleryActivity"
+            android:parentActivityName=".features.path.PathDetailActivity" />
+
+        <activity
+            android:name=".features.common.PdfViewerActivity"
+            android:parentActivityName=".features.path.PathDetailActivity" />
+
+        <activity
+            android:name=".features.common.VideoPlayerActivity"
+            android:parentActivityName=".features.path.PathDetailActivity" />
+
+        <service
+            android:name=".push.TravelingFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+    </application>
+
+</manifest>

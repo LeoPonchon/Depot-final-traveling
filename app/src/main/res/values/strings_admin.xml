@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="admin_open">Administration</string>
+    <string name="admin_title">Administration</string>
+    <string name="admin_access_denied">Acces administrateur requis</string>
+    <string name="admin_reports_title">Gestion des signalements</string>
+    <string name="admin_reports_loading">Chargement des signalements...</string>
+    <string name="admin_reports_open">Ouvrir la moderation</string>
+    <string name="admin_maintenance_title">Maintenance</string>
+    <string name="admin_maintenance_description">Regroupe les actions sensibles reservees aux administrateurs, comme le vidage de la base locale et l acces aux reports.</string>
+
+    <plurals name="admin_reports_count">
+        <item quantity="one">%d signalement ouvert</item>
+        <item quantity="other">%d signalements ouverts</item>
+    </plurals>
+</resources>

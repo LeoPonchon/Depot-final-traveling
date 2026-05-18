@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/pathHeaderTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:text="@string/path_title"
+                android:textAppearance="@style/TextAppearance.Traveling.Title"
+                android:textColor="@color/text_primary" />
+
+            <ImageButton
+                android:id="@+id/help_button"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/common_help"
+                android:padding="8dp"
+                android:src="@drawable/ic_info"
+                app:tint="@color/primary" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/path_preferences"
+            android:textAppearance="@style/TextAppearance.Traveling.Subtitle"
+            android:textColor="@color/text_secondary" />
+
+        <TextView
+            android:id="@+id/path_bridge_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/path_bridge_helper"
+            android:textAppearance="@style/TextAppearance.Traveling.Caption"
+            android:textColor="@color/text_secondary" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/open_share_from_preferences_button"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/path_open_share_from_preferences"
+            app:cornerRadius="12dp"
+            app:icon="@drawable/ic_photo" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/path_departure_city"
+            android:textAppearance="@style/TextAppearance.Traveling.Subtitle" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="@string/path_select_city">
+
+            <AutoCompleteTextView
+                android:id="@+id/city_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/path_activities"
+            android:textAppearance="@style/TextAppearance.Traveling.Subtitle" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/activities_chips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:chipSpacingHorizontal="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/path_interest_tags"
+            android:textAppearance="@style/TextAppearance.Traveling.Subtitle" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="@string/path_tags_hint">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tags_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="@string/path_must_visit_hint">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/must_visit_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/path_budget"
+            android:textAppearance="@style/TextAppearance.Traveling.Subtitle" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="@string/path_budget">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/budget_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:text="100" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/path_departure_time"
+            android:textAppearance="@style/TextAppearance.Traveling.Subtitle" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/departure_time_layout"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="@string/path_time_format_hint">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/departure_time_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="false"
+                android:importantForAutofill="no"
+                android:inputType="none" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/path_duration"
+            android:textAppearance="@style/TextAppearance.Traveling.Subtitle" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/duration_slider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:stepSize="1"
+            android:valueFrom="1"
+            android:valueTo="12"
+            android:value="4" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/path_duration_min"
+                android:textAppearance="@style/TextAppearance.Traveling.Caption" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/path_duration_max"
+                android:textAlignment="textEnd"
+                android:textAppearance="@style/TextAppearance.Traveling.Caption" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/path_effort"
+            android:textAppearance="@style/TextAppearance.Traveling.Subtitle" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/effort_slider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:stepSize="1"
+            android:valueFrom="1"
+            android:valueTo="3"
+            android:value="2" />
+
+        <TextView
+            android:id="@+id/effort_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textAppearance="@style/TextAppearance.Traveling.Caption" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/path_steps_count"
+            android:textAppearance="@style/TextAppearance.Traveling.Subtitle" />
+
+        <com.google.android.material.slider.Slider
+            android:id="@+id/steps_slider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:stepSize="1"
+            android:valueFrom="2"
+            android:valueTo="8"
+            android:value="4" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/path_steps_min"
+                android:textAppearance="@style/TextAppearance.Traveling.Caption" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/path_steps_max"
+                android:textAlignment="textEnd"
+                android:textAppearance="@style/TextAppearance.Traveling.Caption" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/steps_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textAppearance="@style/TextAppearance.Traveling.Caption" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/path_audience_title"
+            android:textAppearance="@style/TextAppearance.Traveling.Subtitle" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/audience_seniors_switch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/path_audience_seniors" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/audience_children_switch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/path_audience_children" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/audience_mobility_switch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/path_audience_mobility" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/audience_health_switch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/path_audience_health" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/path_weather_tolerances"
+            android:textAppearance="@style/TextAppearance.Traveling.Subtitle" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/avoid_cold_switch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/path_avoid_cold" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/avoid_heat_switch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/path_avoid_heat" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/avoid_rain_switch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/path_avoid_rain" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/avoid_humidity_switch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/path_avoid_humidity" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/loading_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="@string/path_loading_message"
+            android:textAppearance="@style/TextAppearance.Traveling.Caption"
+            android:textColor="@color/text_secondary"
+            android:visibility="gone" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/generate_button"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/path_generate"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/primary"
+            app:cornerRadius="12dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/regenerate_button"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/path_regenerate"
+            app:cornerRadius="12dp" />
+
+        <LinearLayout
+            android:id="@+id/paths_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/path_suggestions"
+                android:textAppearance="@style/TextAppearance.Traveling.Title" />
+
+            <TextView
+                android:id="@+id/paths_note"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textAppearance="@style/TextAppearance.Traveling.Body"
+                android:textColor="@color/text_secondary"
+                android:visibility="gone" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/paths_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:nestedScrollingEnabled="false" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/error_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:padding="16dp"
+            android:background="@drawable/bg_error_message"
+            android:textColor="@color/text_secondary"
+            android:textAppearance="@style/TextAppearance.Traveling.Body"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</ScrollView>

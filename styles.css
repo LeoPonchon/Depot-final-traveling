@@ -1,0 +1,280 @@
+:root {
+  /* Colors aligned with Android theme (values-night/colors.xml) */
+  --bg: #121212;
+  --surface: #1e1e1e;
+  --surface-variant: #2a2a2a;
+  --text: #f3f4f6;
+  --muted: #d1d5db;
+  --muted-2: #9ca3af;
+  --border: #3a3a3a;
+  --outline: #4b5563;
+
+  --primary: #f08a3e;
+  --primary-dark: #c96b2d;
+  --accent: #66bb6a;
+
+  /* Material-like, closer to the app: minimal shadow, modest radius */
+  --shadow: none;
+  --radius: 12px;
+  --radius-sm: 10px;
+  --divider: #3a3a3a;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    /* Colors aligned with Android theme (values/colors.xml) */
+    --bg: #f7f7f7;
+    --surface: #ffffff;
+    --surface-variant: #f3f4f6;
+    --text: #1f2937;
+    --muted: #6b7280;
+    --muted-2: #9ca3af;
+    --border: #e5e7eb;
+    --outline: #d1d5db;
+
+    --primary: #e56a0b;
+    --primary-dark: #b85000;
+    --accent: #2e7d32;
+
+    --shadow: none;
+    --divider: #e5e7eb;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, system-ui, -apple-system, Segoe UI, Helvetica, Arial;
+  line-height: 1.6;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.container {
+  width: min(980px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 8px;
+  background: var(--surface);
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.skip-link:focus {
+  left: 16px;
+  z-index: 10;
+}
+
+.site-header {
+  border-bottom: 1px solid var(--divider);
+  background: var(--surface);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 0;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+h1 {
+  margin: 6px 0 0;
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+.lang-switch {
+  display: inline-flex;
+  border: 1px solid var(--outline);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.lang-btn {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  padding: 8px 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+}
+
+.lang-btn.is-active {
+  color: var(--text);
+  background: var(--surface-variant);
+}
+
+.notice {
+  padding: 28px 0 10px;
+}
+
+.notice-card {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 18px 18px;
+}
+
+.notice-title {
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.notice-note {
+  margin: 10px 0 0;
+  color: var(--muted);
+}
+
+.toc {
+  margin: 18px 0 26px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+}
+
+.toc h2 {
+  margin: 0 0 10px;
+  font-size: 1.05rem;
+}
+
+.toc ol {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px 18px;
+}
+
+@media (max-width: 720px) {
+  .toc ol {
+    grid-template-columns: 1fr;
+  }
+}
+
+a {
+  color: var(--primary);
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+.policy {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 22px 20px;
+}
+
+.policy h2 {
+  margin-top: 24px;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
+}
+
+.policy h3 {
+  margin-top: 18px;
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+}
+
+.policy p {
+  margin: 10px 0;
+}
+
+.policy ul {
+  margin: 10px 0;
+  padding-left: 18px;
+}
+
+.hint {
+  color: var(--muted);
+}
+
+.callout {
+  border: 1px solid var(--outline);
+  border-radius: var(--radius-sm);
+  padding: 12px 12px;
+  background: var(--surface-variant);
+}
+
+.placeholder {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.is-hidden {
+  display: none;
+}
+
+.site-footer {
+  padding: 24px 0 40px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.contact {
+  margin: 22px 0 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+}
+
+.contact h2 {
+  margin: 0 0 10px;
+  font-size: 1.1rem;
+}
+
+@media print {
+  body {
+    background: #fff;
+    color: #000;
+  }
+  .site-header,
+  .lang-switch,
+  .toc,
+  .skip-link {
+    display: none !important;
+  }
+  .policy,
+  .notice-card {
+    box-shadow: none;
+    border: 1px solid #ddd;
+    background: #fff;
+  }
+}

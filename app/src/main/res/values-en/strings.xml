@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+    <string name="app_name">Traveling</string>
+
+    <!-- Navigation -->
+    <string name="nav_share">TravelShare</string>
+    <string name="nav_path">TravelPath</string>
+    <string name="nav_profile">Profile</string>
+
+    <!-- TravelShare -->
+    <string name="share_title">Discover places</string>
+    <string name="share_search_hint">Search a place, a theme…</string>
+    <string name="share_bridge_helper">Traveling bridge: turn a photo search into a starting point for TravelPath.</string>
+    <string name="share_open_path_from_search">Create a route from this search</string>
+    <string name="share_open_path_from_search_empty">Enter a place, city, or keyword to transfer to TravelPath first.</string>
+    <string name="share_random">Random discovery</string>
+    <string name="share_category_title">Place type</string>
+    <string name="share_filter_all_types">All types</string>
+    <string name="share_filter_nearby">Nearby</string>
+    <string name="share_filter_period">Date range</string>
+    <string name="share_filter_period_clear">Long-press to clear the date range</string>
+    <string name="photo_create_path">Create a route in this city</string>
+    <string name="photo_report_sent">Report submitted</string>
+    <string name="photo_report_failed">Could not submit report</string>
+    <string name="location_unavailable">Location unavailable</string>
+    <string name="location_permission_denied">Location permission denied</string>
+    <string name="share_filter_author_applied">Filter: photos from this author</string>
+    <string name="share_filter_author_label">Filter by author</string>
+    <string name="share_filter_author_hint">Author name</string>
+    <string name="share_filter_author_button">Apply</string>
+    <string name="share_filter_author_empty">Enter an author name</string>
+    <string name="share_filter_center_label">Geographic filter</string>
+    <string name="share_filter_radius_label">Radius (km)</string>
+    <string name="share_filter_center_button">Choose on map</string>
+    <string name="share_filter_center_none">No center selected</string>
+    <string name="share_filter_center_selected">Selected center: %1$s, %2$s</string>
+    <string name="share_filter_center_picker_title">Pick center</string>
+    <string name="share_filter_center_picker_instruction">Tap or long-press the map to choose the geographic filter center.</string>
+    <string name="share_filter_center_picker_selected">Chosen center: %1$s, %2$s</string>
+    <string name="share_filter_center_picker_confirm">Use this point</string>
+    <string name="share_filter_center_picker_marker">Filter center</string>
+
+    <!-- Place Detail -->
+    <string name="place_how_to_go">How to get there</string>
+    <string name="place_like">Like</string>
+
+    <!-- TravelPath -->
+    <string name="path_title">Create a route</string>
+    <string name="path_preferences">Your preferences</string>
+    <string name="path_bridge_helper">Traveling bridge: use your TravelPath preferences to find related TravelShare photos for the same city, place, or theme.</string>
+    <string name="path_open_share_from_preferences">See related photos</string>
+    <string name="path_open_share_from_preferences_empty">Pick at least a city, a must-see place, or a tag before opening TravelShare.</string>
+    <string name="path_activities">Activity types</string>
+    <string name="path_budget">Maximum budget</string>
+    <string name="path_duration">Available time</string>
+    <string name="path_effort">Effort level</string>
+    <string name="path_generate">Generate routes</string>
+    <string name="path_regenerate">Regenerate (new options)</string>
+    <string name="path_loading_message">Generating your route…</string>
+    <string name="path_empty_state">Tap “Generate routes” to see suggestions.</string>
+    <string name="path_suggestions">Suggested routes</string>
+    <string name="path_steps">Steps</string>
+    <string name="path_total_duration">Total duration</string>
+    <string name="path_total_cost">Estimated cost</string>
+    <string name="path_total_effort">Effort</string>
+    <string name="publish_attach_voice">Record a voice message</string>
+    <string name="publish_voice_attached">Voice message selected</string>
+    <string name="publish_stop_voice_recording">Stop recording</string>
+    <string name="publish_rerecord_voice">Record again</string>
+    <string name="publish_voice_recording_in_progress">Recording in progress… Tap again to stop.</string>
+    <string name="publish_voice_recorded">Voice message recorded</string>
+    <string name="publish_voice_record_error">Unable to record the voice message</string>
+    <string name="publish_audio_permission_required">Microphone permission required</string>
+    <string name="publish_remove_voice">Remove audio</string>
+    <string name="photo_play_voice">Play voice message</string>
+    <string name="photo_playing_pause">Pause</string>
+    <string name="photo_audio_error">Cannot play audio</string>
+    <string name="place_video_url_hint">Place video (https URL, optional)</string>
+    <string name="path_step_watch_video">Watch video</string>
+    <string name="path_share">Share</string>
+    <string name="path_export_pdf">Export as PDF</string>
+    <string name="path_start_navigation">Start navigation</string>
+    <string name="path_save">Save route</string>
+    <string name="path_remove">Remove from routes</string>
+    <string name="path_departure_city">Departure city</string>
+    <string name="path_select_city">Select a city</string>
+    <string name="path_interest_tags">Interests (tags)</string>
+    <string name="path_tags_hint">Ex: history, unusual, viewpoint (comma-separated)</string>
+    <string name="path_departure_time">Departure time</string>
+    <string name="path_time_format_hint">Format HH:mm</string>
+    <string name="path_duration_min">1h</string>
+    <string name="path_duration_max">12h</string>
+    <string name="path_steps_count">Number of steps</string>
+    <string name="path_steps_min">2 steps</string>
+    <string name="path_steps_max">8 steps</string>
+    <string name="path_weather_tolerances">Weather tolerances</string>
+    <string name="path_avoid_cold">Avoid cold</string>
+    <string name="path_avoid_heat">Avoid heat</string>
+    <string name="path_avoid_rain">Avoid rain</string>
+    <string name="path_avoid_humidity">Avoid high humidity (fewer outdoor stops when RH ≥ 72%)</string>
+    <string name="path_must_visit_hint">Must-see places (names or keywords, comma-separated)</string>
+    <string name="directions_choose_app">Directions</string>
+    <string name="directions_app_internal">Traveling map (detailed route)</string>
+    <string name="directions_google_maps">Google Maps</string>
+    <string name="path_step_elevation">Elevation: %1$.0f m</string>
+
+    <!-- Profile -->
+    <string name="profile_anonymous">Anonymous mode</string>
+    <string name="profile_anonymous_desc">Sign in to access more features</string>
+    <string name="profile_login">Sign in</string>
+    <string name="profile_register">Create account</string>
+    <string name="profile_logout">Sign out</string>
+    <string name="profile_my_photos">My photos</string>
+    <string name="profile_favorites">Favorites</string>
+    <string name="profile_my_paths">My routes</string>
+    <string name="profile_groups">My groups</string>
+    <string name="profile_notifications">Notifications</string>
+    <string name="profile_settings">Settings</string>
+
+    <!-- Auth -->
+    <string name="auth_email">Email</string>
+    <string name="auth_password">Password</string>
+    <string name="auth_confirm_password">Confirm password</string>
+    <string name="auth_username">Username</string>
+    <string name="auth_login_btn">Sign in</string>
+    <string name="auth_register_btn">Sign up</string>
+    <string name="auth_no_account">Don\'t have an account yet?</string>
+    <string name="auth_have_account">Already have an account?</string>
+
+    <!-- Publish -->
+    <string name="publish_title">Publish photo</string>
+    <string name="publish_take_photo">Take a photo</string>
+    <string name="publish_choose_gallery">Choose from gallery</string>
+    <string name="publish_description">Description</string>
+    <string name="publish_location">Place</string>
+    <string name="publish_tags">Tags</string>
+    <string name="publish_visibility">Visibility</string>
+    <string name="publish_public">Public</string>
+    <string name="publish_group">Group</string>
+    <string name="publish_private">Private</string>
+    <string name="publish_submit">Publish</string>
+    <string name="publish_loading">Publishing...</string>
+    <string name="publish_success">Photo published successfully</string>
+    <string name="publish_queued_offline">Offline: your photo is queued and will publish automatically when you are back online.</string>
+    <string name="publish_no_group">You are not a member of any group</string>
+    <string name="publish_select_group">Select a group</string>
+    <string name="publish_group_selected">Group: %1$s</string>
+    <string name="common_cancel">Cancel</string>
+    <string name="publish_voice_prompt">Describe your photo...</string>
+    <string name="publish_voice_unavailable">Voice recognition is not available</string>
+    <string name="publish_tags_place_required">Please select a place first</string>
+    <string name="publish_tags_image_required">Add a photo to suggest tags (camera or gallery)</string>
+    <string name="publish_tags_no_labels">No tags detected. Try another photo.</string>
+    <string name="publish_tags_processing">Analyzing image (ML Kit)…</string>
+    <string name="publish_tags_done">Suggested tags added</string>
+    <string name="path_step_opening_hours">Hours: %1$s</string>
+    <string name="place_opening_hours_title">Opening hours</string>
+    <string name="place_opening_hours_hint">Opening hours (optional)</string>
+    <string name="place_opening_hours_example">e.g. Mon–Sat 10am–7pm</string>
+    <string name="publish_places_loading">Loading places...</string>
+    <string name="publish_select_place_title">Select a place</string>
+    <string name="publish_new_place">New place</string>
+    <string name="publish_place_required">Please select a place</string>
+    <string name="publish_image_required">Please select or take a photo</string>
+    <string name="publish_time_of_day_required">Please select a time slot for price</string>
+    <string name="publish_camera_permission_required">Camera permission required</string>
+
+    <!-- Groups -->
+    <string name="group_photos">Shared photos</string>
+    <string name="join_group">Join</string>
+    <string name="leave_group">Leave</string>
+    <string name="leave_group_owner">Leave and transfer</string>
+    <string name="delete_group_title">Delete group</string>
+    <string name="delete_group_message">You are the only member. Do you want to delete this group?</string>
+    <string name="delete_group_confirm">Delete</string>
+    <string name="select_new_owner_title">Choose a new owner</string>
+    <string name="group_left">You left the group</string>
+    <string name="login_required">Sign in to perform this action</string>
+    <string name="ownership_transferred">Ownership transferred to %s</string>
+    <string name="group_deleted">Group deleted</string>
+    <string name="manage_members">Manage members</string>
+    <string name="remove_member">Remove</string>
+    <string name="member_removed">Member removed</string>
+    <plurals name="members_count">
+        <item quantity="one">%d member</item>
+        <item quantity="other">%d members</item>
+    </plurals>
+    <plurals name="photos_count">
+        <item quantity="one">%d photo</item>
+        <item quantity="other">%d photos</item>
+    </plurals>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="notifications_info">Notifications appear in your phone status bar.</string>
+    <string name="notifications_open_settings">Notification settings</string>
+    <string name="settings_appearance">Appearance</string>
+    <string name="settings_dark_mode">Dark mode</string>
+    <string name="settings_theme_light">Light</string>
+    <string name="settings_theme_dark">Dark</string>
+    <string name="settings_theme_system">System</string>
+    <string name="settings_language">Language</string>
+    <string name="settings_language_french">French</string>
+    <string name="settings_language_english">English</string>
+    <string name="settings_data">Data</string>
+    <string name="settings_clear_cache">Clear cache</string>
+    <string name="settings_clear_database">Clear DB (local + Firestore)</string>
+    <string name="settings_cache_cleared">Cache cleared.</string>
+    <string name="settings_clear_database_title">Clear local database?</string>
+    <string name="settings_clear_database_message">This removes app caches, offline publish queue, TravelShare cache, and local Firestore persistence. The app will close — reopen it to reload everything from the server.</string>
+    <string name="settings_clear_database_done">Local database cleared. Please reopen the app.</string>
+    <string name="settings_clear_database_error">Could not clear everything: %1$s</string>
+    <string name="settings_notification">Notification settings</string>
+    <string name="settings_delete_account">Delete my account</string>
+
+    <!-- Common -->
+    <string name="no_results">No results</string>
+    <string name="place_generate_path">Create a route (TravelPath)</string>
+    <string name="photo_taken_prefix">Taken on %1$s</string>
+    <string name="photo_added_prefix">Uploaded on %1$s</string>
+    <string name="photo_coordinates_approx">Approximate location · Lat ~%1$s, Lng ~%2$s</string>
+    <string name="photo_coordinates_exact">Lat: %1$s, Lng: %2$s</string>
+    <string name="similar_photos_title">Similar photos</string>
+    <string name="similar_photos_empty">No similar photos yet</string>
+    <string name="path_audience_title">Group profile</string>
+    <string name="path_audience_seniors">Seniors / slower pace</string>
+    <string name="path_audience_children">Children / families</string>
+    <string name="path_audience_mobility">Reduced mobility</string>
+    <string name="path_audience_health">Health sensitivity / fragile pace (humidity-aware)</string>
+    <string name="path_routing_driving">Between stops: car time (OSRM, approx.)</string>
+    <string name="path_routing_transit_time">Between stops: include public-transit-style duration estimate</string>
+    <string name="path_open_transit_maps">Google Maps (transit)</string>
+    <string name="path_step_share_photos">TravelShare photos at this place</string>
+    <string name="photo_open_place">Open place page</string>
+    <string name="photo_add_must_visit">Add place as required stop for Path</string>
+    <string name="settings_moderation">Moderation (admin)</string>
+    <string name="moderation_empty">No open reports</string>
+    <string name="moderation_load_error">Could not load reports</string>
+    <string name="moderation_hide_photo">Hide photo (HIDDEN)</string>
+    <string name="moderation_resolve_only">Mark report as resolved</string>
+    <string name="intro_traveling_title">Welcome to Traveling</string>
+    <string name="intro_traveling_message">Traveling unifies TravelShare and TravelPath in one app: anonymous or signed-in discovery, public or group publishing, text/audio enrichment, targeted notifications, economic/balanced/comfort itineraries, weather and opening-hours awareness, lightweight offline mode, PDF export, and direct bridges between photos and routes.</string>
+    <string name="publish_taken_date">Date taken</string>
+    <string name="publish_taken_date_pick">Pick date</string>
+    <string name="publish_location_approximate">Approximate location only (rounded coordinates)</string>
+    <string name="step_gallery_video">Place video</string>
+    <string name="step_gallery_watch_video">Watch video</string>
+    <string name="notification_places_title">Followed places (placeId)</string>
+    <string name="notification_place_hint">Place id</string>
+    <string name="notification_add_place">Add place</string>
+    <string name="notification_cat_title">Followed photo types</string>
+    <string name="notification_cat_hint">e.g. NATURE, MUSEUM</string>
+    <string name="notification_add_category">Add type</string>
+    <string name="notification_switch_place">Photos at followed places</string>
+    <string name="notification_switch_category">Photos matching followed types</string>
+</resources>

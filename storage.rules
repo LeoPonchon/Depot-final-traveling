@@ -1,0 +1,52 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function groupMembers(gid) {
+      return firestore.get(/databases/(default)/documents/groups/$(gid)).data.members;
+    }
+
+    function isGroupMember(gid) {
+      return signedIn() && gid != null && gid != '' &&
+        request.auth.uid in groupMembers(gid);
+    }
+
+    function vis() {
+      return resource.metadata.visibility;
+    }
+
+    function gid() {
+      return resource.metadata.groupId;
+    }
+
+    match /users/{userId}/photos/{fileName} {
+      allow read: if
+        (!('visibility' in resource.metadata) && signedIn()) ||
+        vis() == 'PUBLIC' ||
+        (signedIn() && vis() == 'PRIVATE' && request.auth.uid == userId) ||
+        (signedIn() && vis() == 'GROUP' && isGroupMember(gid()));
+
+      allow write: if signedIn() && request.auth.uid == userId;
+    }
+
+    match /users/{userId}/voice/{fileName} {
+      // Voice notes follow the same visibility metadata as photos.
+      // Backward compatible: if metadata is missing, allow read for signed-in sessions (legacy uploads).
+      allow read: if
+        (!('visibility' in resource.metadata) && signedIn()) ||
+        vis() == 'PUBLIC' ||
+        (signedIn() && vis() == 'PRIVATE' && request.auth.uid == userId) ||
+        (signedIn() && vis() == 'GROUP' && isGroupMember(gid()));
+      allow write: if signedIn() && request.auth.uid == userId;
+    }
+
+    match /users/{userId}/avatar/{allPaths=**} {
+      allow read: if true;
+      allow write: if signedIn() && request.auth.uid == userId;
+    }
+  }
+}
